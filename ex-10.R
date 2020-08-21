@@ -10,6 +10,8 @@ USAboundaries::us_states()
 conus = USAboundaries::us_states() %>%
   filter(!state_name %in% c("Puerto Rico", "Alaska", "Hawaii"))
 
+states <- us_states()
+
 states <- st_cast(states, 'MULTILINESTRING') %>% select(geometry)
 
 plot(states$geometry, col = 'lavender')
